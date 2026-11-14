@@ -7,7 +7,8 @@
 
 /* ESTILO GENERAL DEL SITIO */
 body{
-    background: #000000;
+    background: linear_gradient(135deg, #of172a, #1e3a8a, #6d28d9;
+    color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
