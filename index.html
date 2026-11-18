@@ -4,7 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>FISHER Bike Parts | Partes y accesorios para bicicleta</title>
+    <meta name="description" content="FISHER Moto Parts: repuestos, llantas, frenos, cascos y accesorios para motos. Busca tu repuesto y cotiza por WhatsApp.">
+    <meta name="theme-color" content="#070707">
+    <title>FISHER Moto Parts | Repuestos y accesorios para moto</title>
 
     <!-- AQUI SE CONECTA EL CSS -->
     <link rel="stylesheet" href="styles.css">
@@ -12,86 +14,203 @@
 
 <body>
 
-<header>
-    <h1>🚲 FISHER BIKE PARTS</h1>
-    <p>Todo para tu bicicleta en un solo lugar</p>
-</header>
+<a class="skip-link" href="#catalogo">Saltar al catálogo</a>
 
-<nav>
-    <ul>
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">Componentes</a></li>
-        <li><a href="#">Ruedas y llantas</a></li>
-        <li><a href="#">Frenos</a></li>
-        <li><a href="#">Accesorios</a></li>
-        <li><a href="#">Contacto</a></li>
-    </ul>
-</nav>
+<!-- Degradado de fuego compartido por las motos dibujadas -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+        <linearGradient id="fuego" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ff9100"/>
+            <stop offset="1" stop-color="#ff1a00"/>
+        </linearGradient>
+    </defs>
+</svg>
 
-<div class="clearfix"></div>
+<!-- ========== INTRO ANIMADA (entrada de la moto) ========== -->
+<div id="intro" aria-label="Animación de bienvenida">
+    <div class="intro-fire"></div>
+    <div class="intro-road"></div>
+    <div class="speed-lines"><span></span><span></span><span></span><span></span><span></span></div>
 
-<section id="content">
+    <svg class="intro-moto" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" focusable="false">
+        <g fill="none" stroke="url(#fuego)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+            <g class="rueda"><circle cx="80" cy="140" r="45"/><path d="M80 95V185M35 140H125M48 108L112 172M112 108L48 172" stroke-width="3"/></g>
+            <g class="rueda"><circle cx="320" cy="140" r="45"/><path d="M320 95V185M275 140H365M288 108L352 172M352 108L288 172" stroke-width="3"/></g>
+            <path d="M80 140L140 92H232L320 140"/>
+            <path d="M150 92Q172 58 224 70L244 92Z" fill="#1a0500"/>
+            <path d="M118 86L172 82"/>
+            <path d="M320 140L292 70L270 60M270 60L298 56"/>
+            <rect x="170" y="104" width="62" height="34" rx="6" fill="#1a0500"/>
+            <path d="M150 136L96 152"/>
+        </g>
+        <circle class="faro" cx="300" cy="76" r="8" fill="#ffd54f"/>
+    </svg>
 
-    <h2 class="titulo-seccion">Nuestros productos</h2>
-
-    <div class="productos">
-
-        <article class="producto">
-            <div class="icono">🛞</div>
-            <h3>Ruedas y llantas</h3>
-            <p>Llantas, rines, cámaras y todo lo que necesitas para rodar seguro.</p>
-        </article>
-
-        <article class="producto">
-            <div class="icono">🔧</div>
-            <h3>Frenos</h3>
-            <p>Pastillas, discos y cables para frenar con total confianza.</p>
-        </article>
-
-        <article class="producto">
-            <div class="icono">⚙️</div>
-            <h3>Transmisión</h3>
-            <p>Cadenas, piñones, platos y cambios para pedalear suave.</p>
-        </article>
-
-        <article class="producto">
-            <div class="icono">⛑️</div>
-            <h3>Cascos y protección</h3>
-            <p>Cascos, guantes y gafas para cuidarte en cada recorrido.</p>
-        </article>
-
-        <article class="producto">
-            <div class="icono">💡</div>
-            <h3>Luces y accesorios</h3>
-            <p>Luces, timbres, candados, portabultos y más.</p>
-        </article>
-
-        <article class="producto">
-            <div class="icono">🪑</div>
-            <h3>Sillines y manubrios</h3>
-            <p>Comodidad y control para largas rutas y uso diario.</p>
-        </article>
-
+    <div class="intro-texto">
+        <p class="intro-marca">FISHER</p>
+        <p class="intro-sub">MOTO PARTS</p>
     </div>
 
-</section>
+    <button type="button" id="saltar-intro" class="btn-saltar" aria-hidden="false">Saltar intro ▸</button>
+</div>
 
-<aside>
-    <h2>Buscar repuesto</h2>
-    <form>
-        <input type="text" placeholder="Ej: cadena, frenos...">
-        <input type="submit" value="Buscar">
-    </form>
+<!-- ========== HEADER ========== -->
+<header class="site-header" id="inicio-top">
+    <div class="header-inner">
+        <a class="logo" href="#inicio" aria-label="FISHER Moto Parts, ir al inicio">
+            <span class="logo-icono" aria-hidden="true">🏍️</span>
+            <span class="logo-texto"><strong>FISHER</strong> MOTO PARTS</span>
+        </a>
 
-    <h3 class="aside-titulo">¿Necesitas ayuda?</h3>
-    <p>Escríbenos y te asesoramos para encontrar la parte exacta para tu bicicleta.</p>
-</aside>
+        <!-- Buscador siempre visible arriba -->
+        <form class="buscador-top" role="search" id="form-top" aria-label="Buscar repuestos">
+            <label for="buscar-top" class="sr-only">Buscar repuesto de moto</label>
+            <input type="search" id="buscar-top" placeholder="Busca: llanta, pastillas, casco..." autocomplete="off">
+            <button type="submit" aria-label="Buscar">🔍</button>
+        </form>
 
-<div class="clearfix"></div>
+        <button type="button" class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">☰</button>
+    </div>
+
+    <nav class="site-nav" aria-label="Navegación principal">
+        <ul id="menu">
+            <li><a href="#inicio" class="activo">Inicio</a></li>
+            <li><a href="#catalogo">Catálogo</a></li>
+            <li><a href="#categorias">Categorías</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main id="main">
+
+    <!-- ========== HERO ========== -->
+    <section id="inicio" class="hero" aria-labelledby="hero-titulo">
+        <!--
+          VIDEO DE FONDO (opcional): descomenta esto y pon tu video en la misma carpeta.
+          <video class="hero-video" autoplay muted loop playsinline poster="">
+              <source src="moto.mp4" type="video/mp4">
+          </video>
+        -->
+        <div class="hero-brasas" aria-hidden="true"></div>
+
+        <div class="hero-texto reveal">
+            <p class="hero-etiqueta">🔥 Todo para tu moto</p>
+            <h1 id="hero-titulo">Repuestos y accesorios <span class="fuego-texto">para moto</span></h1>
+            <p class="hero-desc">Llantas, frenos, transmisión, cascos y mucho más. Encuentra la parte exacta para tu moto y cotiza en minutos.</p>
+            <div class="hero-botones">
+                <a class="btn btn-fuego" href="#catalogo">Ver catálogo</a>
+                <a class="btn btn-borde" href="#contacto">Cotizar ahora</a>
+            </div>
+            <ul class="hero-datos" aria-label="Ventajas">
+                <li><strong>+500</strong> referencias</li>
+                <li><strong>Envíos</strong> a todo el país</li>
+                <li><strong>Asesoría</strong> personalizada</li>
+            </ul>
+        </div>
+
+        <div class="hero-escena reveal" aria-hidden="true">
+            <div class="moto-3d" id="moto-3d">
+                <div class="aro aro1"></div>
+                <div class="aro aro2"></div>
+                <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                    <g fill="none" stroke="url(#fuego)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+                        <g class="rueda"><circle cx="80" cy="140" r="45"/><path d="M80 95V185M35 140H125M48 108L112 172M112 108L48 172" stroke-width="3"/></g>
+                        <g class="rueda"><circle cx="320" cy="140" r="45"/><path d="M320 95V185M275 140H365M288 108L352 172M352 108L288 172" stroke-width="3"/></g>
+                        <path d="M80 140L140 92H232L320 140"/>
+                        <path d="M150 92Q172 58 224 70L244 92Z" fill="#1a0500"/>
+                        <path d="M118 86L172 82"/>
+                        <path d="M320 140L292 70L270 60M270 60L298 56"/>
+                        <rect x="170" y="104" width="62" height="34" rx="6" fill="#1a0500"/>
+                        <path d="M150 136L96 152"/>
+                    </g>
+                    <circle class="faro" cx="300" cy="76" r="8" fill="#ffd54f"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CATÁLOGO + BUSCADOR ========== -->
+    <section id="catalogo" class="seccion" aria-labelledby="catalogo-titulo">
+        <h2 id="catalogo-titulo" class="titulo-seccion reveal">Catálogo de repuestos</h2>
+
+        <div class="barra-busqueda reveal">
+            <form role="search" id="form-main" aria-label="Buscar en el catálogo">
+                <label for="buscar-main" class="sr-only">Buscar repuesto</label>
+                <input type="search" id="buscar-main" placeholder="Ej: rueda, cadena, pastillas, casco..." autocomplete="off">
+                <button type="submit" class="btn btn-fuego">Buscar</button>
+            </form>
+
+            <div class="filtros" id="filtros" role="group" aria-label="Filtrar por categoría"></div>
+        </div>
+
+        <p id="resultado-info" class="resultado-info" role="status" aria-live="polite"></p>
+
+        <div id="productos" class="productos"></div>
+
+        <div id="sin-resultados" class="sin-resultados" hidden>
+            <p>😕 No encontramos ese repuesto.</p>
+            <p>Escríbenos y lo conseguimos para ti.</p>
+            <a class="btn btn-fuego" id="wa-sin-resultados" href="#contacto">Pedir este repuesto</a>
+        </div>
+    </section>
+
+    <!-- ========== CATEGORÍAS ========== -->
+    <section id="categorias" class="seccion" aria-labelledby="cat-titulo">
+        <h2 id="cat-titulo" class="titulo-seccion reveal">Categorías</h2>
+        <div class="categorias" id="grid-categorias"></div>
+    </section>
+
+    <!-- ========== NOSOTROS ========== -->
+    <section id="nosotros" class="seccion nosotros" aria-labelledby="nos-titulo">
+        <h2 id="nos-titulo" class="titulo-seccion reveal">Por qué FISHER Moto Parts</h2>
+        <div class="ventajas">
+            <article class="ventaja tilt reveal"><span aria-hidden="true">✅</span><h3>Repuestos de calidad</h3><p>Marcas probadas y garantía en cada pieza.</p></article>
+            <article class="ventaja tilt reveal"><span aria-hidden="true">🚚</span><h3>Envíos rápidos</h3><p>Despachamos a todo el país con seguimiento.</p></article>
+            <article class="ventaja tilt reveal"><span aria-hidden="true">🧰</span><h3>Asesoría experta</h3><p>Te ayudamos a encontrar la parte exacta para tu moto.</p></article>
+            <article class="ventaja tilt reveal"><span aria-hidden="true">💳</span><h3>Pagos flexibles</h3><p>Transferencia, efectivo y medios digitales.</p></article>
+        </div>
+    </section>
+
+    <!-- ========== CONTACTO ========== -->
+    <section id="contacto" class="seccion contacto" aria-labelledby="con-titulo">
+        <h2 id="con-titulo" class="titulo-seccion reveal">Contacto y cotización</h2>
+        <div class="contacto-grid">
+            <div class="contacto-info reveal">
+                <h3>¿Necesitas ayuda?</h3>
+                <p>Cuéntanos la marca, modelo y año de tu moto, y el repuesto que buscas. Te respondemos por WhatsApp.</p>
+                <ul>
+                    <li>📍 Tu dirección aquí</li>
+                    <li>📞 +57 300 000 0000</li>
+                    <li>🕒 Lunes a sábado, 8:00 a.m. – 6:00 p.m.</li>
+                </ul>
+            </div>
+
+            <form class="contacto-form reveal" id="form-contacto">
+                <label for="c-nombre">Tu nombre</label>
+                <input type="text" id="c-nombre" required autocomplete="name">
+
+                <label for="c-moto">Marca y modelo de tu moto</label>
+                <input type="text" id="c-moto" placeholder="Ej: Yamaha FZ 150 2021" autocomplete="off">
+
+                <label for="c-msg">¿Qué repuesto necesitas?</label>
+                <textarea id="c-msg" rows="4" required></textarea>
+
+                <button type="submit" class="btn btn-fuego">Enviar por WhatsApp</button>
+            </form>
+        </div>
+    </section>
+
+</main>
+
+<a class="wa-flotante" id="wa-flotante" href="#contacto" aria-label="Escribir por WhatsApp">💬</a>
 
 <footer>
-    © FISHER Bike Parts · Partes y accesorios para bicicleta
+    <p>©️ FISHER Moto Parts · Repuestos y accesorios para moto</p>
+    <p><a href="#inicio">Volver arriba ↑</a></p>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
