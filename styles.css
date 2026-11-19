@@ -771,3 +771,18 @@ footer a{ color: var(--texto-suave); }
     .intro-texto{ opacity: 1; }
     .js .reveal{ opacity: 1; transform: none; }
 }
+/* Separar textos de las tarjetas */
+.producto h3{
+    transform: none;
+    margin-bottom: 12px;
+    line-height: 1.25;
+}
+.producto .cat{
+    transform: none;
+    margin-bottom: 12px;
+}
+.producto p{
+    margin-top: 4px;
+    margin-bottom: 18px;
+    line-height: 1.5;
+}
