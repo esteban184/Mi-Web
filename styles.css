@@ -786,3 +786,13 @@ footer a{ color: var(--texto-suave); }
     margin-bottom: 18px;
     line-height: 1.5;
 }
+/* Separar el ícono de la etiqueta */
+.producto .icono{
+    display: block;
+    line-height: 1.2;
+    margin-bottom: 30px;
+    transform: translateZ(12px);
+}
+.producto .cat{
+    margin-top: 4px;
+}
