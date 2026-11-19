@@ -3,7 +3,7 @@
    ========================================================= */
 
 /* >>> CAMBIA ESTE NÚMERO por el WhatsApp de tu negocio (con código de país, sin + ni espacios) <<< */
-var WHATSAPP = "573000000000";
+var WHATSAPP = "573134487690";
 
 document.documentElement.classList.add("js");
 
