@@ -19,15 +19,15 @@ var CATEGORIAS = [
 ];
 
 var PRODUCTOS = [
-    { n: "Llanta delantera", c: "llantas", i: "🛞", d: "Llantas para calle y trocha, varias medidas.", k: "rueda neumatico caucho" },
-    { n: "Llanta trasera", c: "llantas", i: "🛞", d: "Mayor agarre y durabilidad para uso diario.", k: "rueda neumatico caucho" },
-    { n: "Rines", c: "llantas", i: "⭕", d: "Rines en aluminio y acero para distintas motos.", k: "rueda aro" },
-    { n: "Cámaras y neumáticos", c: "llantas", i: "🔘", d: "Cámaras, parches y válvulas.", k: "camara pinchazo rueda" },
+    { n: "Llanta delantera", c: "llantas", i: "🛞", img: "imagenes/llanta-delantera.jpg", d: "Llantas para calle y trocha, varias medidas.", k: "rueda neumatico caucho" },
+    { n: "Llanta trasera", c: "llantas", i: "🛞", img: "imagenes/llanta-trasera.jpg", d: "Mayor agarre y durabilidad para uso diario.", k: "rueda neumatico caucho" },
+    { n: "Rines", c: "llantas", i: "⭕", img: "imagenes/rines.jpg", d: "Rines en aluminio y acero para distintas motos.", k: "rueda aro" },
+    { n: "Cámaras y neumáticos", c: "llantas", i: "🔘", img: "imagenes/camaras.jpg", d: "Cámaras, parches y válvulas.", k: "camara pinchazo rueda" },
 
-    { n: "Pastillas de freno", c: "frenos", i: "🛑", d: "Pastillas delanteras y traseras de alto rendimiento.", k: "freno balatas frenar" },
-    { n: "Discos de freno", c: "frenos", i: "💿", d: "Discos ventilados para frenar con total confianza.", k: "freno disco" },
-    { n: "Bandas y zapatas", c: "frenos", i: "🔩", d: "Bandas de freno de tambor.", k: "freno tambor zapata" },
-    { n: "Cables y manguera de freno", c: "frenos", i: "〰️", d: "Cables de freno, clutch y acelerador.", k: "guaya cable clutch" },
+    { n: "Pastillas de freno", c: "frenos", i: "🛑", img: "imagenes/pastillas-freno.jpg", d: "Pastillas delanteras y traseras de alto rendimiento.", k: "freno balatas frenar" },
+    { n: "Discos de freno", c: "frenos", i: "💿", img: "imagenes/discos-freno.jpg", d: "Discos ventilados para frenar con total confianza.", k: "freno disco" },
+    { n: "Bandas y zapatas", c: "frenos", i: "🔩", img: "imagenes/bandas-zapatas.jpg", d: "Bandas de freno de tambor.", k: "freno tambor zapata" },
+    { n: "Cables y manguera de freno", c: "frenos", i: "〰️", img: "imagenes/cables-freno.jpg", d: "Cables de freno, clutch y acelerador.", k: "guaya cable clutch" },
 
     { n: "Kit de arrastre", c: "transmision", i: "⛓️", d: "Cadena, piñón y catalina en un solo kit.", k: "cadena pinon catalina cadenilla" },
     { n: "Cadena", c: "transmision", i: "🔗", d: "Cadenas reforzadas con retenes.", k: "cadenilla arrastre" },
@@ -102,7 +102,9 @@ function render(){
         art.className = "producto";
         art.style.animationDelay = (idx * 40) + "ms";
         art.innerHTML =
-            '<div class="icono" aria-hidden="true">' + p.i + '</div>' +
+            (p.img
+                ? '<img class="foto" src="' + p.img + '" alt="' + p.n + '" loading="lazy">'
+                : '<div class="icono" aria-hidden="true">' + p.i + '</div>') +
             '<span class="cat">' + nombreCategoria(p.c) + '</span>' +
             '<h3>' + p.n + '</h3>' +
             '<p>' + p.d + '</p>' +
