@@ -10,6 +10,9 @@
 
     <!-- AQUI SE CONECTA EL CSS -->
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Sin JavaScript no se muestra la intro (para que la página nunca quede tapada) -->
+    <noscript><style>#intro{display:none !important}</style></noscript>
 </head>
 
 <body>
@@ -27,12 +30,18 @@
 </svg>
 
 <!-- ========== INTRO ANIMADA (entrada de la moto) ========== -->
-<div id="intro" aria-label="Animación de bienvenida">
-    <div class="intro-fire"></div>
-    <div class="intro-road"></div>
-    <div class="speed-lines"><span></span><span></span><span></span><span></span><span></span></div>
+<div id="intro" role="dialog" aria-label="Animación de bienvenida">
+    <!-- Video de entrada (lo carga script.js: video/intro.mp4 en pantalla ancha, video/intro-vertical.mp4 en celular) -->
+    <video id="intro-video" class="intro-video" muted playsinline preload="auto" aria-hidden="true"></video>
+    <div class="intro-velo"></div>
+    <div class="intro-progreso"></div>
 
-    <svg class="intro-moto" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" focusable="false">
+    <!-- Respaldo: moto dibujada (solo se usa si el video no carga) -->
+    <div class="intro-fire fb"></div>
+    <div class="intro-road fb"></div>
+    <div class="speed-lines fb"><span></span><span></span><span></span><span></span><span></span></div>
+
+    <svg class="intro-moto fb" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" focusable="false">
         <g fill="none" stroke="url(#fuego)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
             <g class="rueda"><circle cx="80" cy="140" r="45"/><path d="M80 95V185M35 140H125M48 108L112 172M112 108L48 172" stroke-width="3"/></g>
             <g class="rueda"><circle cx="320" cy="140" r="45"/><path d="M320 95V185M275 140H365M288 108L352 172M352 108L288 172" stroke-width="3"/></g>
@@ -183,7 +192,7 @@
                 <ul>
                     <li>📍 Tu dirección aquí</li>
                     <li>📞 +57 313 448 76 90</li>
-                    <li>🕒 Lunes a viernes, 8:00 a.m. – 6:00 p.m. sabados, 8:00 a.m. - 2:00 p.m.</li>
+                    <li>🕒 Lunes a viernes, 8:00 a.m. – 6:00 p.m. Sábados, 8:00 a.m. – 2:00 p.m.</li>
                 </ul>
             </div>
 

@@ -309,20 +309,59 @@ function iniciarIntro(){
 
     document.body.classList.add("intro-activa");
     var cerrada = false;
+    var temporizador = null;
+    var video = document.getElementById("intro-video");
 
     function cerrar(){
         if (cerrada) return;
         cerrada = true;
+        clearTimeout(temporizador);
         intro.classList.add("salir");
         document.body.classList.remove("intro-activa");
         try { sessionStorage.setItem("introVista", "1"); } catch (err) {}
+        try { video.pause(); } catch (err) {}
         setTimeout(function(){
             if (intro.parentNode) intro.parentNode.removeChild(intro);
         }, 800);
     }
 
+    // Plan B: si el video no carga, se usa la animación de la moto dibujada
+    function usarRespaldo(){
+        if (cerrada || intro.classList.contains("sin-video")) return;
+        clearTimeout(temporizador);
+        intro.classList.remove("con-video");
+        intro.classList.add("sin-video");
+        try { video.pause(); } catch (err) {}
+        temporizador = setTimeout(cerrar, 4200);
+    }
+
     document.getElementById("saltar-intro").addEventListener("click", cerrar);
-    setTimeout(cerrar, 4200);
+    document.addEventListener("keydown", function(e){
+        if (e.key === "Escape") cerrar();
+    });
+
+    var ahorroDatos = navigator.connection && navigator.connection.saveData;
+    if (!video || !video.play || ahorroDatos){
+        usarRespaldo();
+        return;
+    }
+
+    // En celular (pantalla vertical) se usa el video vertical; en computador, el ancho
+    var vertical = window.matchMedia("(max-aspect-ratio: 1/1)").matches;
+    video.src = vertical ? "video/intro-vertical.mp4" : "video/intro.mp4";
+
+    video.addEventListener("playing", function(){
+        if (cerrada || intro.classList.contains("sin-video")) return;
+        clearTimeout(temporizador);
+        intro.classList.add("con-video");
+        temporizador = setTimeout(cerrar, 12000);   // seguridad por si "ended" nunca llega
+    });
+    video.addEventListener("ended", cerrar);
+    video.addEventListener("error", usarRespaldo);
+
+    temporizador = setTimeout(usarRespaldo, 4500);  // si el video tarda mucho en arrancar
+    var intento = video.play();
+    if (intento && intento.catch) intento.catch(usarRespaldo);
 }
 
 /* ---------- Arranque ---------- */
