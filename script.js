@@ -29,16 +29,16 @@ var PRODUCTOS = [
     { n: "Bandas y zapatas", c: "frenos", i: "🔩", img: "imagenes/bandas-zapatas.jpg", d: "Bandas de freno de tambor.", k: "freno tambor zapata" },
     { n: "Cables y manguera de freno", c: "frenos", i: "〰️", img: "imagenes/cables-freno.jpg", d: "Cables de freno, clutch y acelerador.", k: "guaya cable clutch" },
 
-    { n: "Kit de arrastre", c: "transmision", i: "⛓️", d: "Cadena, piñón y catalina en un solo kit.", k: "cadena pinon catalina cadenilla" },
-    { n: "Cadena", c: "transmision", i: "🔗", d: "Cadenas reforzadas con retenes.", k: "cadenilla arrastre" },
-    { n: "Clutch y embrague", c: "transmision", i: "🧲", d: "Discos de clutch, resortes y campana.", k: "embrague croche" },
+    { n: "Kit de arrastre", c: "transmision", i: "⛓️", img: "imagenes/kit-arrastre.jpg", d: "Cadena, piñón y catalina en un solo kit.", k: "cadena pinon catalina cadenilla" },
+    { n: "Cadena", c: "transmision", i: "🔗", img: "imagenes/cadena.jpg", d: "Cadenas reforzadas con retenes.", k: "cadenilla arrastre" },
+    { n: "Clutch y embrague", c: "transmision", i: "🧲", img: "imagenes/clutch-embrague.jpg", d: "Discos de clutch, resortes y campana.", k: "embrague croche" },
 
-    { n: "Filtro de aire", c: "motor", i: "🌬️", d: "Filtros de aire y de aceite.", k: "filtro aceite" },
-    { n: "Bujías", c: "motor", i: "⚡", d: "Bujías NGK y equivalentes para mejor encendido.", k: "chispa encendido ngk" },
-    { n: "Aceite y lubricantes", c: "motor", i: "🛢️", d: "Aceites 4T y 2T, minerales y sintéticos.", k: "lubricante aceite 4t 2t" },
-    { n: "Kit de pistón", c: "motor", i: "🔧", d: "Pistón, anillos y empaques.", k: "piston anillos cilindro empaque" },
+    { n: "Filtro de aire", c: "motor", i: "🌬️", img: "imagenes/filtro-aire.jpg", d: "Filtros de aire y de aceite.", k: "filtro aceite" },
+    { n: "Bujías", c: "motor", i: "⚡", img: "imagenes/bujias.jpg", d: "Bujías NGK y equivalentes para mejor encendido.", k: "chispa encendido ngk" },
+    { n: "Aceite y lubricantes", c: "motor", i: "🛢️", img: "imagenes/aceite.jpg", d: "Aceites 4T y 2T, minerales y sintéticos.", k: "lubricante aceite 4t 2t" },
+    { n: "Kit de pistón", c: "motor", i: "🔧", img: "imagenes/kit-piston.jpg", d: "Pistón, anillos y empaques.", k: "piston anillos cilindro empaque" },
 
-    { n: "Bombillos y faros", c: "electrico", i: "💡", d: "Faros LED, bombillos y direccionales.", k: "luz led direccional stop" },
+    { n: "Bombillos y faros", c: "electrico", i: "💡", img: "imagenes/bombillos-faros.jpg", d: "Faros LED, bombillos y direccionales.", k: "luz led direccional stop" },
     { n: "Batería", c: "electrico", i: "🔋", d: "Baterías selladas con garantía.", k: "bateria arranque" },
     { n: "Regulador y CDI", c: "electrico", i: "📟", d: "Reguladores, CDI y bobinas.", k: "regulador cdi bobina electrico" },
 
@@ -103,7 +103,7 @@ function render(){
         art.style.animationDelay = (idx * 40) + "ms";
         art.innerHTML =
             (p.img
-                ? '<img class="foto" src="' + p.img + '" alt="' + p.n + '" loading="lazy">'
+                ? '<div class="foto-marco"><img class="foto" src="' + p.img + '" alt="' + p.n + '" loading="lazy"></div>'
                 : '<div class="icono" aria-hidden="true">' + p.i + '</div>') +
             '<span class="cat">' + nombreCategoria(p.c) + '</span>' +
             '<h3>' + p.n + '</h3>' +
