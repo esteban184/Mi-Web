@@ -39,17 +39,17 @@ var PRODUCTOS = [
     { n: "Kit de pistón", c: "motor", i: "🔧", img: "imagenes/kit-piston.jpg", d: "Pistón, anillos y empaques.", k: "piston anillos cilindro empaque" },
 
     { n: "Bombillos y faros", c: "electrico", i: "💡", img: "imagenes/bombillos-faros.jpg", d: "Faros LED, bombillos y direccionales.", k: "luz led direccional stop" },
-    { n: "Batería", c: "electrico", i: "🔋", d: "Baterías selladas con garantía.", k: "bateria arranque" },
-    { n: "Regulador y CDI", c: "electrico", i: "📟", d: "Reguladores, CDI y bobinas.", k: "regulador cdi bobina electrico" },
+    { n: "Batería", c: "electrico", i: "🔋", img: "imagenes/bateria.jpg", d: "Baterías selladas con garantía.", k: "bateria arranque" },
+    { n: "Regulador y CDI", c: "electrico", i: "📟", img: "imagenes/regulador-cdi.jpg", d: "Reguladores, CDI y bobinas.", k: "regulador cdi bobina electrico" },
 
-    { n: "Cascos", c: "proteccion", i: "⛑️", d: "Integrales, abatibles y abiertos certificados.", k: "casco proteccion cabeza" },
-    { n: "Guantes y chaquetas", c: "proteccion", i: "🧤", d: "Protección para cada recorrido.", k: "guante chaqueta airbag" },
-    { n: "Rodilleras y coderas", c: "proteccion", i: "🛡️", d: "Protecciones articuladas para ruta.", k: "rodillera codera armadura" },
+    { n: "Cascos", c: "proteccion", i: "⛑️", img: "imagenes/cascos.jpg", full: true, d: "Integrales, abatibles y abiertos certificados.", k: "casco proteccion cabeza" },
+    { n: "Guantes y chaquetas", c: "proteccion", i: "🧤", img: "imagenes/guantes-chaquetas.jpg", d: "Protección para cada recorrido.", k: "guante chaqueta airbag" },
+    { n: "Rodilleras y coderas", c: "proteccion", i: "🛡️", img: "imagenes/rodillera-codera.jpg", d: "Protecciones articuladas para ruta.", k: "rodillera codera armadura" },
 
-    { n: "Espejos", c: "accesorios", i: "🪞", d: "Espejos universales y originales.", k: "retrovisor" },
-    { n: "Maletas y parrillas", c: "accesorios", i: "🧳", d: "Baúles, maletas y parrillas.", k: "baul equipaje parrilla" },
-    { n: "Candados y alarmas", c: "accesorios", i: "🔐", d: "Seguridad para tu moto.", k: "seguridad candado alarma" },
-    { n: "Manubrios y manijas", c: "accesorios", i: "🎚️", d: "Manubrios, manijas y puños.", k: "manillar manija puno" }
+    { n: "Espejos", c: "accesorios", i: "🪞", img: "imagenes/espejos.jpg", d: "Espejos universales y originales.", k: "retrovisor" },
+    { n: "Maletas y parrillas", c: "accesorios", i: "🧳", img: "imagenes/maletas-parrillas.jpg", d: "Baúles, maletas y parrillas.", k: "baul equipaje parrilla" },
+    { n: "Candados y alarmas", c: "accesorios", i: "🔐", img: "imagenes/candados-alarmas.jpg", d: "Seguridad para tu moto.", k: "seguridad candado alarma" },
+    { n: "Manubrios y manijas", c: "accesorios", i: "🎚️", img: "imagenes/manubrios-manijas.jpg", d: "Manubrios, manijas y puños.", k: "manillar manija puno" }
 ];
 
 /* ---------- Utilidades ---------- */
@@ -103,7 +103,7 @@ function render(){
         art.style.animationDelay = (idx * 40) + "ms";
         art.innerHTML =
             (p.img
-                ? '<div class="foto-marco"><img class="foto" src="' + p.img + '" alt="' + p.n + '" loading="lazy"></div>'
+                ? '<div class="foto-marco' + (p.full ? ' foto-plena' : '') + '"><img class="foto" src="' + p.img + '" alt="' + p.n + '" loading="lazy"></div>'
                 : '<div class="icono" aria-hidden="true">' + p.i + '</div>') +
             '<span class="cat">' + nombreCategoria(p.c) + '</span>' +
             '<h3>' + p.n + '</h3>' +

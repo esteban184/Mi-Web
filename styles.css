@@ -890,3 +890,7 @@ footer a{ color: var(--texto-suave); }
     filter: drop-shadow(0 4px 24px rgba(0,0,0,.8));
 }
 #intro .btn-saltar{ z-index: 3; }
+
+/* Foto a todo el marco (fondo oscuro, ej. casco) */
+.producto .foto-marco.foto-plena{background:#111}
+.producto .foto-marco.foto-plena .foto{object-fit:cover;padding:0;mix-blend-mode:normal}
