@@ -894,3 +894,13 @@ footer a{ color: var(--texto-suave); }
 /* Foto a todo el marco (fondo oscuro, ej. casco) */
 .producto .foto-marco.foto-plena{background:#111}
 .producto .foto-marco.foto-plena .foto{object-fit:cover;padding:0;mix-blend-mode:normal}
+
+/* Todas las fotos llenan el marco (como el casco) */
+.producto .foto-marco .foto{object-fit:cover;padding:0}
+.producto .foto-marco{height:190px}
+
+/* Fondo negro para las fotos (se ven más pro) */
+.producto .foto-marco,.producto .foto-marco.foto-plena{background:radial-gradient(circle at 50% 40%,#2a1408 0%,#120a06 60%,#0a0a0a 100%);box-shadow:0 8px 22px rgba(255,70,0,.28),inset 0 0 0 1px rgba(255,120,40,.25)}
+.producto .foto-marco::after{background:linear-gradient(to top,rgba(255,70,0,.18),transparent 40%)}
+.producto .foto-marco .foto{mix-blend-mode:normal;object-fit:cover;padding:0}
+.producto .foto-marco.foto-plena .foto{object-fit:cover;padding:0}
