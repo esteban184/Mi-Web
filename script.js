@@ -103,7 +103,7 @@ function render(){
         art.style.animationDelay = (idx * 40) + "ms";
         art.innerHTML =
             (p.img
-                ? '<div class="foto-marco' + (p.full ? ' foto-plena' : '') + '"><img class="foto" src="' + p.img + '" alt="' + p.n + '" loading="lazy"></div>'
+                ? '<div class="foto-marco' + (p.full ? ' foto-plena' : '') + '"><img class="foto" src="' + p.img + '?v=3" alt="' + p.n + '" loading="lazy"></div>'
                 : '<div class="icono" aria-hidden="true">' + p.i + '</div>') +
             '<span class="cat">' + nombreCategoria(p.c) + '</span>' +
             '<h3>' + p.n + '</h3>' +
