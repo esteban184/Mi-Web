@@ -9,7 +9,7 @@
     <title>FISHER Moto Parts | Repuestos y accesorios para moto</title>
 
     <!-- AQUI SE CONECTA EL CSS -->
-    <link rel="stylesheet" href="styles.css?v=3">
+    <link rel="stylesheet" href="styles.css?v=4">
 
     <!-- Sin JavaScript no se muestra la intro (para que la página nunca quede tapada) -->
     <noscript><style>#intro{display:none !important}</style></noscript>
@@ -241,6 +241,56 @@
         </div>
     </section>
 
+    <!-- ========== GALERÍA ========== -->
+    <section id="galeria" class="seccion galeria" aria-labelledby="gal-titulo">
+        <h2 id="gal-titulo" class="titulo-seccion reveal">Galería</h2>
+        <p class="gal-sub reveal">Equipo, repuestos y accesorios para tu moto. Toca una foto para verla en grande.</p>
+        <div class="g-grid">
+            <figure class="g-item g-alta reveal">
+                <button type="button" class="g-btn" data-src="imagenes/galeria/g1-kit-motero.jpg?v=1" data-alt="Todo lo que lleva un motero: casco, botas, guantes, chaqueta y accesorios" aria-label="Ampliar foto: Equipo del motero">
+                    <img src="imagenes/galeria/g1-kit-motero.jpg?v=1" alt="Todo lo que lleva un motero: casco, botas, guantes, chaqueta y accesorios" loading="lazy">
+                    <figcaption>Equipo del motero</figcaption>
+                </button>
+            </figure>
+            <figure class="g-item  reveal">
+                <button type="button" class="g-btn" data-src="imagenes/galeria/g2-casco-traje.jpg?v=1" data-alt="Casco integral negro mate sobre un traje de cuero" aria-label="Ampliar foto: Casco y traje">
+                    <img src="imagenes/galeria/g2-casco-traje.jpg?v=1" alt="Casco integral negro mate sobre un traje de cuero" loading="lazy">
+                    <figcaption>Casco y traje</figcaption>
+                </button>
+            </figure>
+            <figure class="g-item g-alta reveal">
+                <button type="button" class="g-btn" data-src="imagenes/galeria/g3-rueda-neon.jpg?v=1" data-alt="Rueda trasera con luces LED azules, cadena y piñón" aria-label="Ampliar foto: Luces LED y transmisión">
+                    <img src="imagenes/galeria/g3-rueda-neon.jpg?v=1" alt="Rueda trasera con luces LED azules, cadena y piñón" loading="lazy">
+                    <figcaption>Luces LED y transmisión</figcaption>
+                </button>
+            </figure>
+            <figure class="g-item  reveal">
+                <button type="button" class="g-btn" data-src="imagenes/galeria/g4-motor.jpg?v=1" data-alt="Motor bicilíndrico en V cromado" aria-label="Ampliar foto: Motor">
+                    <img src="imagenes/galeria/g4-motor.jpg?v=1" alt="Motor bicilíndrico en V cromado" loading="lazy">
+                    <figcaption>Motor</figcaption>
+                </button>
+            </figure>
+            <figure class="g-item  reveal">
+                <button type="button" class="g-btn" data-src="imagenes/galeria/g5-engranajes.jpg?v=1" data-alt="Engranajes metálicos sobre fondo negro" aria-label="Ampliar foto: Engranajes">
+                    <img src="imagenes/galeria/g5-engranajes.jpg?v=1" alt="Engranajes metálicos sobre fondo negro" loading="lazy">
+                    <figcaption>Engranajes</figcaption>
+                </button>
+            </figure>
+            <figure class="g-item  reveal">
+                <button type="button" class="g-btn" data-src="imagenes/galeria/g6-freno-disco.jpg?v=1" data-alt="Rueda delantera con disco de freno y pinza" aria-label="Ampliar foto: Frenos">
+                    <img src="imagenes/galeria/g6-freno-disco.jpg?v=1" alt="Rueda delantera con disco de freno y pinza" loading="lazy">
+                    <figcaption>Frenos</figcaption>
+                </button>
+            </figure>
+            <figure class="g-item  reveal">
+                <button type="button" class="g-btn" data-src="imagenes/galeria/g7-llanta-deportiva.jpg?v=1" data-alt="Llanta deportiva con rin negro de siete rayos" aria-label="Ampliar foto: Llantas y rines">
+                    <img src="imagenes/galeria/g7-llanta-deportiva.jpg?v=1" alt="Llanta deportiva con rin negro de siete rayos" loading="lazy">
+                    <figcaption>Llantas y rines</figcaption>
+                </button>
+            </figure>
+        </div>
+    </section>
+
     <!-- ========== CONTACTO ========== -->
     <section id="contacto" class="seccion contacto" aria-labelledby="con-titulo">
         <h2 id="con-titulo" class="titulo-seccion reveal">Contacto y cotización</h2>
@@ -279,6 +329,14 @@
     <p><a href="#inicio">Volver arriba ↑</a></p>
 </footer>
 
-<script src="script.js?v=3"></script>
+<dialog id="visor" class="visor" aria-label="Foto ampliada">
+    <button type="button" class="v-cerrar" id="v-cerrar" aria-label="Cerrar">✕</button>
+    <button type="button" class="v-nav v-ant" id="v-ant" aria-label="Foto anterior">‹</button>
+    <img id="v-img" src="" alt="">
+    <button type="button" class="v-nav v-sig" id="v-sig" aria-label="Foto siguiente">›</button>
+    <p id="v-pie" class="v-pie"></p>
+</dialog>
+
+<script src="script.js?v=4"></script>
 </body>
 </html>

@@ -371,3 +371,32 @@ render();
 activarReveal();
 marcarActivo();
 iniciarIntro();
+
+/* ---------- Galería con visor ---------- */
+(function(){
+    var visor = document.getElementById("visor");
+    var botones = Array.prototype.slice.call(document.querySelectorAll(".g-btn"));
+    if (!visor || !botones.length || typeof visor.showModal !== "function") return;
+    var img = document.getElementById("v-img"), pie = document.getElementById("v-pie");
+    var actual = 0, origen = null;
+
+    function mostrar(i){
+        actual = (i + botones.length) % botones.length;
+        var b = botones[actual];
+        img.src = b.getAttribute("data-src");
+        img.alt = b.getAttribute("data-alt");
+        pie.textContent = b.getAttribute("data-alt");
+    }
+    botones.forEach(function(b, i){
+        b.addEventListener("click", function(){ origen = b; mostrar(i); visor.showModal(); });
+    });
+    document.getElementById("v-cerrar").addEventListener("click", function(){ visor.close(); });
+    document.getElementById("v-ant").addEventListener("click", function(){ mostrar(actual - 1); });
+    document.getElementById("v-sig").addEventListener("click", function(){ mostrar(actual + 1); });
+    visor.addEventListener("click", function(e){ if (e.target === visor) visor.close(); });
+    visor.addEventListener("keydown", function(e){
+        if (e.key === "ArrowLeft") mostrar(actual - 1);
+        if (e.key === "ArrowRight") mostrar(actual + 1);
+    });
+    visor.addEventListener("close", function(){ if (origen) origen.focus(); });
+})();
