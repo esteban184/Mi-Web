@@ -904,3 +904,7 @@ footer a{ color: var(--texto-suave); }
 .categoria:hover .cat-foto img, .categoria:focus-visible .cat-foto img{ transform: scale(1.08); filter: brightness(1.1); }
 .categoria .cat-nombre{ display:block; padding:12px 12px 0; }
 .categoria small{ padding:0 12px 14px; color: var(--naranja); font-weight:700; }
+
+/* fotos oscuras que se ven completas (llantas, rines) */
+.producto .foto-marco.foto-plena.foto-entera{background:#050505}
+.producto .foto-marco.foto-plena.foto-entera .foto{object-fit:contain;padding:4px}
