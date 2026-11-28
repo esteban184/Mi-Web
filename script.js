@@ -25,9 +25,9 @@ var PRODUCTOS = [
     { n: "Cámaras y neumáticos", c: "llantas", i: "🔘", img: "imagenes/camaras.jpg", full: true, d: "Cámaras, parches y válvulas.", k: "camara pinchazo rueda" },
 
     { n: "Pastillas de freno", c: "frenos", i: "🛑", img: "imagenes/pastillas-freno.jpg", d: "Pastillas delanteras y traseras de alto rendimiento.", k: "freno balatas frenar" },
-    { n: "Discos de freno", c: "frenos", i: "💿", img: "imagenes/discos-freno.jpg", d: "Discos ventilados para frenar con total confianza.", k: "freno disco" },
+    { n: "Discos de freno", c: "frenos", i: "💿", img: "imagenes/discos-freno.jpg", full: true, fit: "entera", d: "Discos ventilados para frenar con total confianza.", k: "freno disco" },
     { n: "Bandas y zapatas", c: "frenos", i: "🔩", img: "imagenes/bandas-zapatas.jpg", d: "Bandas de freno de tambor.", k: "freno tambor zapata" },
-    { n: "Cables y manguera de freno", c: "frenos", i: "〰️", img: "imagenes/cables-freno.jpg", d: "Cables de freno, clutch y acelerador.", k: "guaya cable clutch" },
+    { n: "Cables y manguera de freno", c: "frenos", i: "〰️", img: "imagenes/cables-freno.jpg", full: true, d: "Cables de freno, clutch y acelerador.", k: "guaya cable clutch" },
 
     { n: "Kit de arrastre", c: "transmision", i: "⛓️", img: "imagenes/kit-arrastre.jpg", d: "Cadena, piñón y catalina en un solo kit.", k: "cadena pinon catalina cadenilla" },
     { n: "Cadena", c: "transmision", i: "🔗", img: "imagenes/cadena.jpg", d: "Cadenas reforzadas con retenes.", k: "cadenilla arrastre" },
@@ -103,7 +103,7 @@ function render(){
         art.style.animationDelay = (idx * 40) + "ms";
         art.innerHTML =
             (p.img
-                ? '<div class="foto-marco' + (p.full ? ' foto-plena' : '') + (p.fit ? ' foto-entera' : '') + '"><img class="foto" src="' + p.img + '?v=8" alt="' + p.n + '" loading="lazy"></div>'
+                ? '<div class="foto-marco' + (p.full ? ' foto-plena' : '') + (p.fit ? ' foto-entera' : '') + '"><img class="foto" src="' + p.img + '?v=9" alt="' + p.n + '" loading="lazy"></div>'
                 : '<div class="icono" aria-hidden="true">' + p.i + '</div>') +
             '<span class="cat">' + nombreCategoria(p.c) + '</span>' +
             '<h3>' + p.n + '</h3>' +
@@ -187,7 +187,7 @@ function crearCategorias(){
         b.type = "button";
         b.className = "categoria reveal";
         b.setAttribute("aria-label", "Ver " + c.nombre + " (" + total + " productos)");
-        b.innerHTML = '<span class="cat-foto"><img src="' + c.img + '?v=8" alt="" loading="lazy"></span>' +
+        b.innerHTML = '<span class="cat-foto"><img src="' + c.img + '?v=9" alt="" loading="lazy"></span>' +
             '<span class="cat-nombre"><span aria-hidden="true">' + c.icono + '</span> ' + c.nombre + '</span>' +
             '<small>' + total + ' productos · Ver →</small>';
         b.addEventListener("click", function(){
