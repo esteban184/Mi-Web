@@ -19,8 +19,8 @@ var CATEGORIAS = [
 ];
 
 var PRODUCTOS = [
-    { n: "Llanta delantera", c: "llantas", i: "🛞", img: "imagenes/llanta-delantera.jpg", d: "Llantas para calle y trocha, varias medidas.", k: "rueda neumatico caucho" },
-    { n: "Llanta trasera", c: "llantas", i: "🛞", img: "imagenes/llanta-trasera.jpg", d: "Mayor agarre y durabilidad para uso diario.", k: "rueda neumatico caucho" },
+    { n: "Llanta delantera", c: "llantas", i: "🛞", img: "imagenes/llanta-delantera.jpg", full: true, fit: "entera", d: "Llantas para calle y trocha, varias medidas.", k: "rueda neumatico caucho" },
+    { n: "Llanta trasera", c: "llantas", i: "🛞", img: "imagenes/llanta-trasera.jpg", full: true, fit: "entera", d: "Mayor agarre y durabilidad para uso diario.", k: "rueda neumatico caucho" },
     { n: "Rines", c: "llantas", i: "⭕", img: "imagenes/rines.jpg", full: true, fit: "entera", d: "Rines en aluminio y acero para distintas motos.", k: "rueda aro" },
     { n: "Cámaras y neumáticos", c: "llantas", i: "🔘", img: "imagenes/camaras.jpg", full: true, d: "Cámaras, parches y válvulas.", k: "camara pinchazo rueda" },
 
@@ -103,7 +103,7 @@ function render(){
         art.style.animationDelay = (idx * 40) + "ms";
         art.innerHTML =
             (p.img
-                ? '<div class="foto-marco' + (p.full ? ' foto-plena' : '') + (p.fit ? ' foto-entera' : '') + '"><img class="foto" src="' + p.img + '?v=7" alt="' + p.n + '" loading="lazy"></div>'
+                ? '<div class="foto-marco' + (p.full ? ' foto-plena' : '') + (p.fit ? ' foto-entera' : '') + '"><img class="foto" src="' + p.img + '?v=8" alt="' + p.n + '" loading="lazy"></div>'
                 : '<div class="icono" aria-hidden="true">' + p.i + '</div>') +
             '<span class="cat">' + nombreCategoria(p.c) + '</span>' +
             '<h3>' + p.n + '</h3>' +
@@ -187,7 +187,7 @@ function crearCategorias(){
         b.type = "button";
         b.className = "categoria reveal";
         b.setAttribute("aria-label", "Ver " + c.nombre + " (" + total + " productos)");
-        b.innerHTML = '<span class="cat-foto"><img src="' + c.img + '?v=7" alt="" loading="lazy"></span>' +
+        b.innerHTML = '<span class="cat-foto"><img src="' + c.img + '?v=8" alt="" loading="lazy"></span>' +
             '<span class="cat-nombre"><span aria-hidden="true">' + c.icono + '</span> ' + c.nombre + '</span>' +
             '<small>' + total + ' productos · Ver →</small>';
         b.addEventListener("click", function(){
