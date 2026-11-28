@@ -9,13 +9,13 @@ document.documentElement.classList.add("js");
 
 /* ---------- Catálogo (edita / agrega productos aquí) ---------- */
 var CATEGORIAS = [
-    { id: "llantas",   nombre: "Llantas y rines", icono: "🛞" },
-    { id: "frenos",    nombre: "Frenos",          icono: "🛑" },
-    { id: "transmision", nombre: "Transmisión",   icono: "⛓️" },
-    { id: "motor",     nombre: "Motor",           icono: "⚙️" },
-    { id: "electrico", nombre: "Luces y eléctrico", icono: "💡" },
-    { id: "proteccion", nombre: "Cascos y protección", icono: "⛑️" },
-    { id: "accesorios", nombre: "Accesorios",     icono: "🧰" }
+    { id: "llantas",   nombre: "Llantas y rines", icono: "🛞", img: "imagenes/llanta-deportiva.jpg" },
+    { id: "frenos",    nombre: "Frenos",          icono: "🛑", img: "imagenes/freno-disco.jpg" },
+    { id: "transmision", nombre: "Transmisión",   icono: "⛓️", img: "imagenes/engranajes.jpg" },
+    { id: "motor",     nombre: "Motor",           icono: "⚙️", img: "imagenes/motor.jpg" },
+    { id: "electrico", nombre: "Luces y eléctrico", icono: "💡", img: "imagenes/rueda-neon.jpg" },
+    { id: "proteccion", nombre: "Cascos y protección", icono: "⛑️", img: "imagenes/casco-traje.jpg" },
+    { id: "accesorios", nombre: "Accesorios",     icono: "🧰", img: "imagenes/kit-motero.jpg" }
 ];
 
 var PRODUCTOS = [
@@ -186,8 +186,10 @@ function crearCategorias(){
         var b = document.createElement("button");
         b.type = "button";
         b.className = "categoria reveal";
-        b.innerHTML = '<span class="icono" aria-hidden="true">' + c.icono + '</span>' +
-            c.nombre + '<small>' + total + ' productos</small>';
+        b.setAttribute("aria-label", "Ver " + c.nombre + " (" + total + " productos)");
+        b.innerHTML = '<span class="cat-foto"><img src="' + c.img + '?v=5" alt="" loading="lazy"></span>' +
+            '<span class="cat-nombre"><span aria-hidden="true">' + c.icono + '</span> ' + c.nombre + '</span>' +
+            '<small>' + total + ' productos · Ver →</small>';
         b.addEventListener("click", function(){
             setBusqueda("");
             setCategoria(c.id);
@@ -371,32 +373,3 @@ render();
 activarReveal();
 marcarActivo();
 iniciarIntro();
-
-/* ---------- Galería con visor ---------- */
-(function(){
-    var visor = document.getElementById("visor");
-    var botones = Array.prototype.slice.call(document.querySelectorAll(".g-btn"));
-    if (!visor || !botones.length || typeof visor.showModal !== "function") return;
-    var img = document.getElementById("v-img"), pie = document.getElementById("v-pie");
-    var actual = 0, origen = null;
-
-    function mostrar(i){
-        actual = (i + botones.length) % botones.length;
-        var b = botones[actual];
-        img.src = b.getAttribute("data-src");
-        img.alt = b.getAttribute("data-alt");
-        pie.textContent = b.getAttribute("data-alt");
-    }
-    botones.forEach(function(b, i){
-        b.addEventListener("click", function(){ origen = b; mostrar(i); visor.showModal(); });
-    });
-    document.getElementById("v-cerrar").addEventListener("click", function(){ visor.close(); });
-    document.getElementById("v-ant").addEventListener("click", function(){ mostrar(actual - 1); });
-    document.getElementById("v-sig").addEventListener("click", function(){ mostrar(actual + 1); });
-    visor.addEventListener("click", function(e){ if (e.target === visor) visor.close(); });
-    visor.addEventListener("keydown", function(e){
-        if (e.key === "ArrowLeft") mostrar(actual - 1);
-        if (e.key === "ArrowRight") mostrar(actual + 1);
-    });
-    visor.addEventListener("close", function(){ if (origen) origen.focus(); });
-})();
